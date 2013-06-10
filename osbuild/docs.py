@@ -30,7 +30,8 @@ def build():
             print("* Generating %s" % module.name)
             os.chdir(module.get_source_dir())
             output_dir = os.path.join(config.docs_dir, module.docs_dir)
-            command.run(["docker", "-I", "-c", "default", "-o", output_dir])
+            command.run(["docker", "-I", "-c", "default", "-o", output_dir,
+                         "--extras" "addHeader"])
 
     return True
 
