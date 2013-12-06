@@ -135,6 +135,8 @@ def _pull_module(module, revision=None):
     except subprocess.CalledProcessError:
         return False
 
+    print("\trev: {0}".format(git_module.get_head()))
+
     state.pulled_module_touch(module)
 
     return True

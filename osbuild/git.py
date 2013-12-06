@@ -190,6 +190,10 @@ class Module:
 
         return result
 
+    def get_head(self):
+        os.chdir(self.local)
+        return subprocess.check_output(["git", "rev-parse", "HEAD"]).strip()
+
 
 def get_module(module):
     return Module(path=config.get_source_dir(),
