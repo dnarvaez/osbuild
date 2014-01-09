@@ -22,7 +22,7 @@ from osbuild import config
 from osbuild import command
 
 
-def run(cmd):
+def run(cmd, **kwargs):
     args = [cmd]
 
     prefs = config.get_prefs()
@@ -35,7 +35,7 @@ def run(cmd):
 
     signal.signal(signal.SIGINT, signal.SIG_IGN)
 
-    command.run(args)
+    command.run(args, **kwargs)
 
 
 def collect_logs(source_path, log_path):
