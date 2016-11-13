@@ -79,6 +79,9 @@ class Module:
 
         os.chdir(self.local)
 
+        command.run(["git", "submodule", "init"])
+        command.run(["git", "submodule", "update"])
+
         for name, remote in self._remotes.items():
             if name != "origin":
                 command.run(["git", "remote", "add", name, remote])
@@ -109,6 +112,7 @@ class Module:
 
         command.run(["git", "remote", "set-url", "origin", remote])
         command.run(["git", "fetch"], retry=self._retry)
+        command.run(["git", "submodule", "update"])
 
         if revision:
             command.run(["git", "checkout", revision])
