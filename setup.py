@@ -48,4 +48,4 @@ setup(name="osbuild",
       cmdclass={"lint": LintCommand},
       install_requires=["plog==0.16",
                         "json-format==0.1",
-                        "pygments==1.6"])
+                        "pygments==2.7.4"])
